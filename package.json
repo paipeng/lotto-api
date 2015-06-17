@@ -1,0 +1,25 @@
+{
+  "name": "lotto-api",
+  "version": "0.1.0",
+  "description": "nodejs for showing lotto number archive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/paipeng/lotto-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "lotto",
+    "rest-api",
+    "json"
+  ],
+  "author": "Pai Peng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paipeng/lotto-api/issues"
+  },
+  "homepage": "https://github.com/paipeng/lotto-api#readme"
+}
