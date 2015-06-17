@@ -22,7 +22,7 @@ function getLottoByYear(year) {
 }
 
 module.exports = {
-    getLotto: function (server_res, year) {
+    getLotto: function (year) {
         var json = [];
         if (year === undefined) {
             var this_year = new Date().getFullYear();
