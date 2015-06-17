@@ -3,13 +3,6 @@
  */
 
 
-var express = require('express');
-var cors = require('cors');
-
-var app = express();
-app.use(cors());
-
-
 function convertLottoToJson(html, div_name, row_offset) {
     var divtojson = require('html-div2json-js');
     return divtojson.convert(html, div_name, row_offset);
@@ -28,30 +21,21 @@ function getLottoByYear(year) {
     return json_object;
 }
 
-function getLotto(server_res, year) {
-    server_res.writeHead(200, {'Content-Type': 'application/json'});
-    var json = [];
-    if (year === undefined) {
-        var this_year = new Date().getFullYear();
-        for (var i = 1955; i <= this_year; i++) {
-            json = json.concat(getLottoByYear(parseInt(i)));
+module.exports = {
+    getLotto: function (server_res, year) {
+        var json = [];
+        if (year === undefined) {
+            var this_year = new Date().getFullYear();
+            for (var i = 1955; i <= this_year; i++) {
+                json = json.concat(getLottoByYear(parseInt(i)));
+            }
+        } else if (year === 'last') {
+            var this_year = new Date().getFullYear();
+            json = getLottoByYear(year);
+            json = json[json.length - 1];
+        } else {
+            json = json.concat(getLottoByYear(year));
         }
-    } else {
-        json = json.concat(getLottoByYear(year));
+        return json;
     }
-    server_res.write(JSON.stringify(json));
-    server_res.end();
-}
-
-app.get('/lotto/:name', function (req, res) {
-    var year = req.params.name;
-
-    getLotto(res, year);
-});
-
-app.get('/lotto', function (req, res) {
-    getLotto(res, undefined);
-});
-
-
-app.listen(3004);
+};

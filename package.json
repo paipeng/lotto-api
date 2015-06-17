@@ -1,6 +1,6 @@
 {
   "name": "lotto-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "nodejs for showing lotto number archive",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,6 @@
   "keywords": [
     "nodejs",
     "lotto",
-    "rest-api",
     "json"
   ],
   "author": "Pai Peng",
@@ -23,9 +22,6 @@
   },
   "homepage": "https://github.com/paipeng/lotto-api#readme",
   "dependencies": {
-    "cheerio": "^0.19.0",
-    "cors": "^2.7.1",
-    "express": "^4.12.4",
     "html-div2json-js": "^0.1.0",
     "sync-request": "^2.0.1"
   }
