@@ -1,6 +1,6 @@
 {
   "name": "lotto-api",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "nodejs for showing lotto number archive",
   "main": "index.js",
   "scripts": {

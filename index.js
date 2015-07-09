@@ -37,7 +37,7 @@ module.exports = {
             var json_object = getLottoByYear(year);
             if (id === undefined) {
                 json = json.concat(getLottoByYear(year));
-            } else if ((id-1) <= json_object.length) {
+            } else if ((id-1) <= json_object.length && (id-1) >= 0) {
                 json = json_object[id-1];
             } 
                 
