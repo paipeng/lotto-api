@@ -22,7 +22,7 @@ function getLottoByYear(year) {
 }
 
 module.exports = {
-    getLotto: function (year) {
+    getLotto: function (year, id) {
         var json = [];
         if (year === undefined) {
             var this_year = new Date().getFullYear();
@@ -34,7 +34,13 @@ module.exports = {
             json = getLottoByYear(year);
             json = json[json.length - 1];
         } else {
-            json = json.concat(getLottoByYear(year));
+            var json_object = getLottoByYear(year);
+            if (id === undefined) {
+                json = json.concat(getLottoByYear(year));
+            } else if (id < json_object.length) {
+                json = json_object[id];
+            } 
+                
         }
         return json;
     }
